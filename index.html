@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClearAccounts SG — Professional Bookkeeping & Tax Services in Singapore</title>
+  <meta name="description" content="Professional bookkeeping, GST filing, and corporate tax services for Singapore small businesses. Flat-rate pricing, IRAS compliant, remote-friendly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #0B1F3A; --navy2: #152E52; --gold: #C9A84C; --gold-light: #F0E6CC;
+      --cream: #FAFAF7; --text: #1a1a1a; --muted: #5a5a5a; --faint: #9a9a9a;
+      --border: rgba(0,0,0,0.09); --white: #ffffff;
+    }
+    body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 3rem; border-bottom: 1px solid var(--border);
+      background: var(--white); position: sticky; top: 0; z-index: 10;
+    }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 0.3px; }
+    .logo span { color: var(--gold); }
+    .logo sub { font-size: 13px; font-weight: 400; color: var(--muted); margin-left: 2px; font-family: 'Outfit', sans-serif; vertical-align: middle; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 14px; color: var(--muted); letter-spacing: 0.2px; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--navy); color: white; border: none;
+      padding: 9px 22px; border-radius: 4px; font-size: 13px; font-weight: 500;
+      cursor: pointer; font-family: 'Outfit', sans-serif; letter-spacing: 0.3px;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--navy2); }
+
+    /* HERO */
+    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
+    .hero-left {
+      padding: 5rem 3rem 4rem; background: var(--navy);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .eyebrow {
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem; font-weight: 500;
+    }
+    .hero-left h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600;
+      line-height: 1.15; color: white; margin-bottom: 1.5rem; letter-spacing: -0.3px;
+    }
+    .hero-left h1 em { color: var(--gold); font-style: normal; }
+    .hero-left p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 2.5rem; max-width: 380px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-gold {
+      background: var(--gold); color: var(--navy); border: none;
+      padding: 12px 26px; border-radius: 4px; font-size: 14px; font-weight: 500;
+      cursor: pointer; font-family: 'Outfit', sans-serif; letter-spacing: 0.3px;
+      transition: opacity 0.15s;
+    }
+    .btn-gold:hover { opacity: 0.88; }
+    .btn-outline {
+      background: transparent; color: white; border: 1px solid rgba(255,255,255,0.3);
+      padding: 12px 26px; border-radius: 4px; font-size: 14px;
+      cursor: pointer; font-family: 'Outfit', sans-serif; transition: border-color 0.15s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.6); }
+    .hero-right {
+      background: var(--cream); padding: 4rem 3rem;
+      display: flex; flex-direction: column; justify-content: center; gap: 1.25rem;
+    }
+    .trust-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--faint); margin-bottom: 0.5rem; }
+    .service-pill {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 4px; padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .pill-icon {
+      width: 36px; height: 36px; border-radius: 3px; background: var(--gold-light);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .pill-icon i { font-size: 17px; color: var(--gold); }
+    .pill-title { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+    .pill-desc { font-size: 12px; color: var(--muted); }
+
+    /* STATS */
+    .stats-bar { display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--border); }
+    .stat-item { padding: 1.5rem 2rem; border-right: 1px solid var(--border); text-align: center; }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--navy); }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* SECTIONS */
+    .section { padding: 4rem 3rem; max-width: 1000px; margin: 0 auto; }
+    .section-eyebrow { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; font-weight: 500; }
+    .section h2 { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; margin-bottom: 0.5rem; color: var(--navy); }
+    .section-sub { font-size: 15px; color: var(--muted); margin-bottom: 2.5rem; max-width: 520px; line-height: 1.7; }
+
+    /* SERVICES */
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .svc-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 6px; padding: 1.75rem; transition: border-color 0.15s;
+    }
+    .svc-card:hover { border-color: var(--gold); }
+    .svc-icon {
+      width: 44px; height: 44px; border-radius: 4px; background: var(--gold-light);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
+    }
+    .svc-icon i { font-size: 20px; color: var(--gold); }
+    .svc-title { font-size: 16px; font-weight: 500; margin-bottom: 0.5rem; color: var(--navy); }
+    .svc-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* PROCESS */
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+    .step-card { background: var(--cream); border-radius: 6px; padding: 1.5rem; }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 600; color: var(--gold); opacity: 0.4; line-height: 1; margin-bottom: 0.75rem; }
+    .step-title { font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--navy); }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* PRICING */
+    .pricing-note { font-size: 13px; color: var(--faint); margin-bottom: 2.5rem; max-width: 600px; line-height: 1.6; font-style: italic; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-bottom: 2rem; }
+    .price-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 6px; padding: 2rem; display: flex; flex-direction: column;
+    }
+    .price-card.featured { background: var(--navy); border-color: var(--navy); }
+    .price-tier { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+    .price-card.featured .price-tier { color: var(--gold); }
+    .price-amount { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--navy); line-height: 1; }
+    .price-card.featured .price-amount { color: white; }
+    .price-per { font-size: 12px; color: var(--muted); margin-bottom: 0.5rem; margin-top: 4px; }
+    .price-card.featured .price-per { color: rgba(255,255,255,0.5); }
+    .price-suitable { font-size: 12px; color: var(--gold); margin-bottom: 1.25rem; font-weight: 500; }
+    .price-divider { border: none; border-top: 1px solid var(--border); margin: 1.25rem 0; }
+    .price-card.featured .price-divider { border-top-color: rgba(255,255,255,0.15); }
+    .price-features { list-style: none; margin-bottom: 1rem; flex: 1; }
+    .price-features li { font-size: 13px; color: var(--muted); padding: 5px 0; display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+    .price-card.featured .price-features li { color: rgba(255,255,255,0.75); }
+    .price-features li i { font-size: 14px; color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .not-included { margin-bottom: 1.5rem; }
+    .not-label { font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--faint); margin-bottom: 6px; }
+    .price-card.featured .not-label { color: rgba(255,255,255,0.35); }
+    .not-text { font-size: 12px; color: var(--faint); line-height: 1.6; }
+    .price-card.featured .not-text { color: rgba(255,255,255,0.35); }
+    .addon-note { font-size: 12px; color: var(--gold); margin-bottom: 1.5rem; line-height: 1.5; }
+    .btn-price {
+      width: 100%; padding: 11px; border-radius: 4px; font-size: 13px; font-weight: 500;
+      cursor: pointer; font-family: 'Outfit', sans-serif; letter-spacing: 0.3px;
+      border: 1px solid var(--navy); background: transparent; color: var(--navy);
+      transition: all 0.15s;
+    }
+    .btn-price:hover { background: var(--navy); color: white; }
+    .price-card.featured .btn-price { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .price-card.featured .btn-price:hover { opacity: 0.88; }
+    .popular-badge {
+      display: inline-block; background: var(--gold); color: var(--navy);
+      font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 0.75rem;
+    }
+    .contact-band {
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: 6px; padding: 1.75rem 2rem;
+      display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .contact-icon {
+      width: 44px; height: 44px; background: var(--gold-light); border-radius: 4px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact-icon i { font-size: 20px; color: var(--gold); }
+    .contact-title { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+    .contact-desc { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 500px; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; max-width: 640px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+    .faq-q { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
+    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* CTA */
+    .cta-band { background: var(--navy); padding: 4rem 3rem; text-align: center; }
+    .cta-band h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: white; margin-bottom: 0.75rem; }
+    .cta-band p { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 2rem; }
+
+    /* FOOTER */
+    footer { background: var(--cream); padding: 2.5rem 3rem; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; }
+    .footer-logo span { color: var(--gold); }
+    .footer-desc { font-size: 13px; color: var(--muted); margin-top: 6px; max-width: 260px; line-height: 1.6; }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; padding-top: 4px; }
+    .footer-links a { font-size: 13px; color: var(--muted); transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1000px; margin: 1.5rem auto 0; padding-top: 1.25rem; border-top: 1px solid var(--border); font-size: 12px; color: var(--faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    @media (max-width: 700px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 3rem 1.5rem; }
+      .hero-right { display: none; }
+      .stats-bar { grid-template-columns: repeat(2,1fr); }
+      .services-grid, .process-grid, .pricing-grid { grid-template-columns: 1fr; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .section { padding: 3rem 1.5rem; }
+      .cta-band { padding: 3rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+<body>
+
+<nav>
+  <div class="logo">Clear<span>Accounts</span><sub>SG</sub></div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Singapore Bookkeeping & Accounting</div>
+    <h1>Clean books.<br/><em>Zero</em> stress.</h1>
+    <p>Professional bookkeeping and tax filing for Singapore small businesses and sole proprietors. Accurate, affordable, and always on time.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+      <button class="btn-outline" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">See Pricing</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="trust-label">What we handle for you</div>
+    <div class="service-pill">
+      <div class="pill-icon"><i class="ti ti-book" aria-hidden="true"></i></div>
+      <div><div class="pill-title">Monthly Bookkeeping</div><div class="pill-desc">Transaction recording, bank reconciliation</div></div>
+    </div>
+    <div class="service-pill">
+      <div class="pill-icon"><i class="ti ti-receipt-tax" aria-hidden="true"></i></div>
+      <div><div class="pill-title">GST Filing</div><div class="pill-desc">Quarterly GST F5 submission to IRAS</div></div>
+    </div>
+    <div class="service-pill">
+      <div class="pill-icon"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+      <div><div class="pill-title">Financial Reports</div><div class="pill-desc">Monthly P&amp;L and balance sheet</div></div>
+    </div>
+    <div class="service-pill">
+      <div class="pill-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+      <div><div class="pill-title">Corporate Tax (ECI / Form C-S)</div><div class="pill-desc">Annual IRAS corporate tax filing</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">3+</div><div class="stat-label">Years Singapore experience</div></div>
+  <div class="stat-item"><div class="stat-num">48h</div><div class="stat-label">Monthly report turnaround</div></div>
+  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">IRAS compliant</div></div>
+  <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Hidden fees</div></div>
+</div>
+
+<div style="border-bottom: 1px solid var(--border); padding: 4rem 0;">
+  <div class="section" id="services" style="padding: 0 3rem;">
+    <div class="section-eyebrow">Services</div>
+    <h2>Everything your business needs</h2>
+    <p class="section-sub">From day-to-day bookkeeping to annual tax filing — handled remotely, delivered on time.</p>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-book" aria-hidden="true"></i></div>
+        <div class="svc-title">Monthly Bookkeeping</div>
+        <div class="svc-desc">Full transaction recording, categorisation, and bank reconciliation using Xero or your preferred software.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-receipt-tax" aria-hidden="true"></i></div>
+        <div class="svc-title">GST Filing</div>
+        <div class="svc-desc">Accurate quarterly GST F5 returns prepared and submitted to IRAS on your behalf, on time, every time.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
+        <div class="svc-title">Management Accounts</div>
+        <div class="svc-desc">Monthly profit &amp; loss statement and balance sheet so you always know where your business stands.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+        <div class="svc-title">Corporate Tax Filing</div>
+        <div class="svc-desc">ECI and Form C-S preparation and submission. We ensure you maximise available IRAS tax exemptions.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-file-spreadsheet" aria-hidden="true"></i></div>
+        <div class="svc-title">Payroll Processing</div>
+        <div class="svc-desc">Monthly payroll calculation, CPF contributions, and IR8A preparation for your employees. Quoted separately.</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon"><i class="ti ti-messages" aria-hidden="true"></i></div>
+        <div class="svc-title">IRAS Correspondence</div>
+        <div class="svc-desc">We handle queries and correspondence from IRAS so you can focus on running your business.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="border-bottom: 1px solid var(--border); background: var(--cream); padding: 4rem 0;">
+  <div class="section" id="how-it-works" style="padding: 0 3rem;">
+    <div class="section-eyebrow">How it works</div>
+    <h2>Up and running in 4 steps</h2>
+    <p class="section-sub">No long onboarding. No complicated software. Just send us your documents and we do the rest.</p>
+    <div class="process-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-title">Free consultation</div><div class="step-desc">Tell us about your business. We'll recommend the right plan and answer any questions.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title">Share your documents</div><div class="step-desc">Upload bank statements, invoices and receipts via a shared Google Drive folder. That's it.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-title">We do the work</div><div class="step-desc">We record, reconcile, and prepare all reports and filings within 48 hours of month end.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-title">Review &amp; approve</div><div class="step-desc">You receive clean reports every month. We handle IRAS submissions directly on your behalf.</div></div>
+    </div>
+  </div>
+</div>
+
+<div style="border-bottom: 1px solid var(--border); padding: 4rem 0;">
+  <div class="section" id="pricing" style="padding: 0 3rem;">
+    <div class="section-eyebrow">Pricing</div>
+    <h2>Simple, flat-rate pricing</h2>
+    <p class="section-sub">Flexible bookkeeping services tailored to small businesses in Singapore.</p>
+    <p class="pricing-note">Final pricing depends on transaction volume, accounting complexity, and the condition of financial records. All clients go through a short review before pricing is confirmed.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">From SGD 250</div>
+        <div class="price-per">per month</div>
+        <div class="price-suitable">Suitable for simple, non-GST small businesses</div>
+        <hr class="price-divider"/>
+        <ul class="price-features">
+          <li><i class="ti ti-check" aria-hidden="true"></i>Up to 50 transactions / month</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Monthly bookkeeping (based on available business records)</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Profit &amp; Loss Statement + Balance Sheet</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Annual Form C-S filing (preparation &amp; submission)</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Email support (bookkeeping-related matters only)</li>
+        </ul>
+        <div class="not-included">
+          <div class="not-label">Not included</div>
+          <div class="not-text">GST filing · Payroll · Historical cleanup · Tax advisory · Accounting software fees</div>
+        </div>
+        <button class="btn-price">Get a free quote</button>
+      </div>
+      <div class="price-card featured">
+        <div class="popular-badge">Most popular</div>
+        <div class="price-tier">Growth</div>
+        <div class="price-amount">From SGD 450</div>
+        <div class="price-per">per month</div>
+        <div class="price-suitable">Suitable for businesses with moderate transaction volume</div>
+        <hr class="price-divider"/>
+        <ul class="price-features">
+          <li><i class="ti ti-check" aria-hidden="true"></i>Up to 150 transactions / month</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Monthly bookkeeping</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Quarterly GST F5 filing (GST-registered clients)</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Profit &amp; Loss Statement + Balance Sheet</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Annual Form C-S filing</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Priority WhatsApp support (bookkeeping matters only)</li>
+        </ul>
+        <div class="not-included">
+          <div class="not-label">Not included</div>
+          <div class="not-text">Payroll · Historical cleanup · Tax advisory · Software fees</div>
+        </div>
+        <button class="btn-price">Get a free quote</button>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Complete</div>
+        <div class="price-amount">From SGD 750</div>
+        <div class="price-per">per month</div>
+        <div class="price-suitable">Suitable for growing businesses with higher transaction volume</div>
+        <hr class="price-divider"/>
+        <ul class="price-features">
+          <li><i class="ti ti-check" aria-hidden="true"></i>Up to 300 transactions / month</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Everything included in Growth</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Monthly management reports</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Priority response support</li>
+          <li><i class="ti ti-check" aria-hidden="true"></i>Year-end financial reporting support for tax filing coordination</li>
+        </ul>
+        <div class="addon-note">Optional add-ons (quoted separately):<br/>Payroll · Historical bookkeeping cleanup · Tax advisory support</div>
+        <button class="btn-price">Get a free quote</button>
+      </div>
+    </div>
+    <div class="contact-band">
+      <div class="contact-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <div>
+        <div class="contact-title">Not sure which plan fits your business?</div>
+        <div class="contact-desc">All clients go through a short review of their business and accounting records before final pricing is confirmed. Get in touch and we'll recommend the right fit — no commitment required.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="border-bottom: 1px solid var(--border); background: var(--cream); padding: 4rem 0;">
+  <div class="section" id="faq" style="padding: 0 3rem;">
+    <div class="section-eyebrow">FAQ</div>
+    <h2>Common questions</h2>
+    <div class="faq-list" style="margin-top: 2rem;">
+      <div class="faq-item"><div class="faq-q">Do I need to be based in Singapore?</div><div class="faq-a">No. We work with Singapore-registered companies remotely. All document sharing is done securely via Google Drive.</div></div>
+      <div class="faq-item"><div class="faq-q">What accounting software do you use?</div><div class="faq-a">We primarily use Xero, which is IRAS-compliant and easy for you to review your accounts anytime. We can also work with QuickBooks or your existing setup.</div></div>
+      <div class="faq-item"><div class="faq-q">Is GST filing included in all plans?</div><div class="faq-a">GST filing is included in the Growth and Complete plans. If you're on the Starter plan and become GST-registered, GST filing can be added for SGD 80 per quarter.</div></div>
+      <div class="faq-item"><div class="faq-q">How do I send you my documents?</div><div class="faq-a">We set up a shared Google Drive folder for your business. You upload bank statements, invoices, and receipts there each month — we handle everything from that point.</div></div>
+      <div class="faq-item"><div class="faq-q">Can I switch plans later?</div><div class="faq-a">Yes. You can upgrade or downgrade your plan at any month end with no penalties or lock-in fees.</div></div>
+      <div class="faq-item"><div class="faq-q">Are you a licensed public accountant?</div><div class="faq-a">We provide bookkeeping and tax preparation services based on professional experience. We are not a licensed public accountant firm. For statutory audit or work requiring a licensed accountant, we will advise accordingly.</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="contact" style="background: var(--navy); padding: 5rem 3rem;">
+  <div style="max-width: 640px; margin: 0 auto;">
+    <div style="font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;font-weight:500;">Contact</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:white;margin-bottom:0.75rem;">Get a free quote</h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:2.5rem;line-height:1.7;">Tell us about your business and we'll get back to you within 48 hours with a tailored recommendation. No commitment required.</p>
+
+    <form action="https://formspree.io/f/mgodnkbl" method="POST" id="contact-form">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+        <div>
+          <label style="font-size:12px;color:rgba(255,255,255,0.5);display:block;margin-bottom:6px;letter-spacing:0.3px;">Full name *</label>
+          <input type="text" name="name" required placeholder="Your name"
+            style="width:100%;padding:11px 14px;border-radius:5px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:white;font-size:14px;font-family:'Outfit',sans-serif;outline:none;">
+        </div>
+        <div>
+          <label style="font-size:12px;color:rgba(255,255,255,0.5);display:block;margin-bottom:6px;letter-spacing:0.3px;">Phone number</label>
+          <input type="tel" name="phone" placeholder="+65 or +1..."
+            style="width:100%;padding:11px 14px;border-radius:5px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:white;font-size:14px;font-family:'Outfit',sans-serif;outline:none;">
+        </div>
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <label style="font-size:12px;color:rgba(255,255,255,0.5);display:block;margin-bottom:6px;letter-spacing:0.3px;">Email address *</label>
+        <input type="email" name="email" required placeholder="you@example.com"
+          style="width:100%;padding:11px 14px;border-radius:5px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:white;font-size:14px;font-family:'Outfit',sans-serif;outline:none;">
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <label style="font-size:12px;color:rgba(255,255,255,0.5);display:block;margin-bottom:6px;letter-spacing:0.3px;">What service are you looking for?</label>
+        <select name="service"
+          style="width:100%;padding:11px 14px;border-radius:5px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:white;font-size:14px;font-family:'Outfit',sans-serif;outline:none;cursor:pointer;">
+          <option value="" style="background:#0B1F3A;">Select a service...</option>
+          <option value="Monthly Bookkeeping" style="background:#0B1F3A;">Monthly Bookkeeping</option>
+          <option value="GST Filing" style="background:#0B1F3A;">GST Filing</option>
+          <option value="Corporate Tax Filing" style="background:#0B1F3A;">Corporate Tax (ECI / Form C-S)</option>
+          <option value="Payroll" style="background:#0B1F3A;">Payroll Processing</option>
+          <option value="Not sure" style="background:#0B1F3A;">Not sure — need advice</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:1.75rem;">
+        <label style="font-size:12px;color:rgba(255,255,255,0.5);display:block;margin-bottom:6px;letter-spacing:0.3px;">Tell us about your business</label>
+        <textarea name="message" rows="4" placeholder="E.g. industry, number of transactions per month, any specific questions..."
+          style="width:100%;padding:11px 14px;border-radius:5px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:white;font-size:14px;font-family:'Outfit',sans-serif;outline:none;resize:vertical;"></textarea>
+      </div>
+
+      <button type="submit"
+        style="width:100%;background:var(--gold);color:var(--navy);border:none;padding:13px;border-radius:5px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;letter-spacing:0.3px;transition:opacity 0.15s;"
+        onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+        Send message
+      </button>
+
+      <p style="font-size:12px;color:rgba(255,255,255,0.35);text-align:center;margin-top:1rem;">
+        We reply within 48 hours · No spam · No commitment
+      </p>
+    </form>
+
+    <div id="form-success" style="display:none;background:rgba(29,158,117,0.15);border:1px solid var(--gold);border-radius:8px;padding:1.5rem;text-align:center;margin-top:1rem;">
+      <div style="font-size:24px;margin-bottom:8px;">✓</div>
+      <div style="font-size:16px;font-weight:500;color:white;margin-bottom:4px;">Message sent!</div>
+      <div style="font-size:14px;color:rgba(255,255,255,0.6);">We'll get back to you within 48 hours.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Clear<span>Accounts</span> SG</div>
+      <div class="footer-desc">Professional bookkeeping and tax services for Singapore small businesses. IRAS compliant. Remotely delivered.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ClearAccounts SG · Not a licensed public accountant firm</span>
+    <span>Singapore · Remote services available worldwide</span>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type=submit]');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        btn.textContent = 'Send message';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    } catch {
+      btn.textContent = 'Send message';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again.');
+    }
+  });
+}
+</script>
+</body>
+</html>
